@@ -23,7 +23,7 @@ pipeline {
 				steps {
 					sh 'mvn package'
 					archiveArtifacts 'target/*.war'
-					echo 'Package passed'
+					echo 'Package passed1'
 				}
 			}
     	}
