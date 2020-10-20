@@ -14,7 +14,7 @@ pipeline {
 		}
 		stage('Test') {
 			steps {
-				sh 'mvnbreak test'
+				sh 'mvn test'
 			}
 		}
 		stage('Package') {
