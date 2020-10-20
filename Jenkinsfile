@@ -1,27 +1,31 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn compile'
-      }
-    }
+	agent any
 
-    stage('Test') {
-      steps {
-        sh 'mvn test'
-      }
-    }
+	tools {
+		maven 'Maven 3.6.1'
+	}
 
-    stage('Package') {
-      steps {
-        sh 'mvn package'
-        archiveArtifacts 'target/*.war'
-      }
-    }
-
-  }
-  tools {
-    maven 'Maven 3.6.1'
-  }
+	stages {
+		stages {
+			stage('Build') {
+				steps {
+					sh 'mvn compile'
+					echo 'Build passed'
+				}
+			}
+			stage('Test') {
+				steps {
+					sh 'mvn test'
+					echo 'Test passed'
+				}
+			}
+			stage('Package') {
+				steps {
+					sh 'mvn package'
+					archiveArtifacts 'target/*.war'
+					echo 'Package passed'
+				}
+			}
+    	}
+	}
 }
