@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Package') {
 			steps {
-				sh 'mvnadd package'
+				sh 'mvn package'
 			}
 		}
 	}
