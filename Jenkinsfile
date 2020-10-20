@@ -10,16 +10,19 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'mvn compile'
+				echo 'Build passed'
 			}
 		}
 		stage('Test') {
 			steps {
 				sh 'mvn test'
+				echo 'Test passed'
 			}
 		}
 		stage('Package') {
 			steps {
 				sh 'mvn package'
+				echo 'Package passed'
 			}
 		}
 	}
